@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lightButton: UIButton!
+    
+    var isOn: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func lightButtonTapped(sender: AnyObject) {
+        
+        if isOn {
+            self.isOn = false
+            
+            self.lightButton.setTitle("On", forState: .Normal)
+            self.lightButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            self.view.backgroundColor = UIColor.blackColor()
+            
+        } else {
+            self.isOn = true
+            
+            self.lightButton.setTitle("OFF", forState: .Normal)
+            self.lightButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            self.view.backgroundColor = UIColor.whiteColor()
+        }
+    }
 }
 
